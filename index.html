@@ -43,6 +43,7 @@ status = (await fetch("https://isaacscout.herokuapp.com/api/v1/entries.json?coun
 } else {
     document.getElementById('displaytext').innerText = 'NO'
 };
+console.log("glucose level: "+status.sgv)
 })()
 </script>
 </head>
