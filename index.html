@@ -37,7 +37,7 @@
   </style>
 <script>
 (async()=>{
-status = await fetch("https://isaacscout.herokuapp.com/api/v1/entries.json?count=1", mode: "no-cors").sgv
+status = (await fetch("https://isaacscout.herokuapp.com/api/v1/entries.json?count=1", mode: "no-cors")).sgv
     if (status > 180) {
     document.getElementById('displaytext').innerText = 'YES'
 } else {
