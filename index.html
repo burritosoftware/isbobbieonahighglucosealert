@@ -1,9 +1,9 @@
 <html>
 <head>
-<title>Is Burrito Online?</title>
-<meta property="og:title" content="Is Burrito Online?">
+<title>Is Bobbie on a High Glucose Alert?</title>
+<meta property="og:title" content="Is Bobbie on a High Glucose Alert?">
 <meta property="og:site_name" content="eaic & BurritoSOFTWARE">
-<meta property="og:url" content="https://issc2adonline.burrito.software">
+<meta property="og:url" content="https://isbobbieonahighglucosealert.burrito.software">
 <meta property="og:type" content="product">
 <style type="text/css">
 
@@ -37,8 +37,8 @@
   </style>
 <script>
 (async()=>{
-status = ((await(await fetch("https://discord.com/api/guilds/419367512262705152/widget.json")).json()).members.filter(x => x.username === 'Burrito')[0]||{}).username
-if (status !== 'undefined') {
+status = await fetch("https://isaacscout.herokuapp.com/api/v1/entries.json?count=1").sgv
+    if (status > 180) {
     document.getElementById('displaytext').innerText = 'YES'
 } else {
     document.getElementById('displaytext').innerText = 'NO'
