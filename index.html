@@ -36,17 +36,30 @@
     }
   </style>
 <script>
-(async()=>{
-status = (await fetch("https://isaacscout.herokuapp.com/api/v1/entries.json?count=1", { mode: "no-cors" })).json()
-    if (status.sgv > 180) {
-    document.getElementById('displaytext').innerText = 'YES'
-} else {
-    document.getElementById('displaytext').innerText = 'NO'
+// fetch https://isaacscout.herokuapp.com/api/v1/entries.json?count=1 and get the json without cors, if the sgv key is > 180, then set the text to "YES", otherwise "NO"
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://isaacscout.herokuapp.com/api/v1/entries.json?count=1", true);
+xhr.onload = function (e) {
+  if (xhr.readyState === 4) {
+    if (xhr.status === 200) {
+      var response = JSON.parse(xhr.responseText);
+      console.log("glucose level: " + response[0].sgv);
+      if (response[0].sgv > 180) {
+        document.getElementById("status").innerHTML = "YES";
+      } else {
+        document.getElementById("status").innerHTML = "NO";
+      }
+    } else {
+      document.getElementById("status").innerHTML = "NO";
+    }
+  }
 };
-console.log("glucose level: "+status.sgv)
-})()
+xhr.onerror = function (e) {
+  document.getElementById("status").innerHTML = "NO";
+};
+xhr.send(null);
 </script>
 </head>
 <body>
-<p id="displaytext"></p>
+<p id="status"></p>
 </body>
